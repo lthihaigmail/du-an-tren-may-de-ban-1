@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài Khám Sức Khỏe Vận Hành Doanh Nghiệp — Emmy Lê Thị Hải</title>
+<meta name="description" content="Công ty của anh/chị còn chạy được không, nếu không có anh/chị? Bài Khám 45 câu, ~15 phút — đọc ngay sức khỏe vận hành theo 3 trụ Con người · Hệ thống · Người đứng đầu.">
+<link rel="canonical" href="https://www.emmyhai.com/bai-kham">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#08234D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bài Khám Sức Khỏe Vận Hành Doanh Nghiệp">
+<meta property="og:description" content="45 câu, ~15 phút. Đọc sức khỏe vận hành theo 3 trụ Con người · Hệ thống · Người đứng đầu — biết chính xác điểm nghẽn khiến công ty phụ thuộc vào bạn.">
+<meta property="og:url" content="https://www.emmyhai.com/bai-kham">
+<meta property="og:site_name" content="Emmy Lê Thị Hải">
+<meta property="og:image" content="https://www.emmyhai.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2308234D'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23C9A24B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+:root{
+  --navy:#08234D;--navy2:#0c3b6e;--gold:#C9A24B;--goldsoft:#fdf9f0;
+  --ink:#1a2233;--inksoft:#3a4557;--line:#e3e7ee;--bg:#f4f6f9;--card:#fff;--light:#cdd6e4;--golddk:#8a7332;
+  --ok:#3d7a3d;--warn:#b3541e;
+  --pf:'Playfair Display',Georgia,serif;--bvp:'Be Vietnam Pro',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--bvp);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;}
+.shell{max-width:760px;margin:0 auto;padding:0 18px;}
+h1,h2,h3{font-family:var(--pf);color:var(--navy);line-height:1.15;font-weight:600;}
+.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-family:var(--bvp);font-weight:700;font-size:16px;padding:15px 30px;border-radius:9px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,162,75,.35);}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none;}
+.btn.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--line);font-weight:600;}
+.btn.ghost:hover{border-color:var(--gold);box-shadow:none;}
+
+/* top bar with progress */
+.topbar{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;}
+.topbar .shell{display:flex;align-items:center;justify-content:space-between;height:56px;}
+.brand{font-family:var(--pf);font-weight:700;font-size:18px;color:#fff;letter-spacing:.5px;text-decoration:none;}
+.brand span{color:var(--gold);}
+.pct{font-size:13px;color:var(--light);}
+.pbar{height:4px;background:#0c2a5a;}
+.pfill{height:100%;background:var(--gold);width:0;transition:width .4s ease;}
+
+.screen{display:none;padding:36px 0 60px;}
+.screen.active{display:block;animation:fade .4s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* welcome */
+.hero-card{background:var(--navy);color:#fff;border-radius:16px;padding:40px 34px;position:relative;overflow:hidden;}
+.hero-card:before{content:"";position:absolute;top:20px;right:-30px;width:200px;height:150px;background-image:radial-gradient(var(--gold) 1.4px,transparent 1.4px);background-size:20px 20px;opacity:.25;}
+.hero-card .eyebrow{margin-bottom:16px;}
+.hero-card h1{color:#fff;font-size:clamp(26px,5vw,38px);margin-bottom:14px;position:relative;}
+.hero-card .q{font-family:var(--pf);font-style:italic;font-size:clamp(19px,3.6vw,24px);color:var(--gold);margin:18px 0;position:relative;}
+.hero-card p{color:var(--light);font-size:16px;position:relative;}
+.meta{display:flex;gap:22px;margin:22px 0 6px;flex-wrap:wrap;font-size:14px;color:var(--light);position:relative;}
+.meta b{color:#fff;}
+.rules{margin-top:26px;}
+.rule-item{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:9px;padding:16px 18px;margin-bottom:12px;font-size:14.5px;color:var(--inksoft);}
+.rule-item b{color:var(--navy);}
+.center{text-align:center;margin-top:30px;}
+
+/* info form */
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 24px;margin-bottom:18px;}
+.card h2{font-size:22px;margin-bottom:6px;}
+.card .lead{color:var(--inksoft);font-size:15px;margin-bottom:20px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.field input,.field select,.field textarea{width:100%;font-family:var(--bvp);font-size:15px;padding:12px 14px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);transition:border-color .15s;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);}
+.optwrap{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);border-radius:9px;padding:11px 14px;cursor:pointer;font-size:14.5px;transition:all .12s;background:#fff;}
+.opt:hover{border-color:var(--gold);background:var(--goldsoft);}
+.opt.sel{border-color:var(--gold);background:var(--goldsoft);box-shadow:inset 0 0 0 1px var(--gold);}
+.opt .dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);flex-shrink:0;position:relative;}
+.opt.sel .dot{border-color:var(--gold);}
+.opt.sel .dot:after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--gold);}
+
+/* question screens */
+.q-head{margin-bottom:8px;}
+.q-part{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.q-sub{font-family:var(--pf);font-size:19px;color:var(--navy);margin:6px 0 22px;font-weight:600;}
+.qbox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 24px;margin-bottom:16px;box-shadow:0 2px 12px rgba(8,35,77,.04);}
+.qnum{display:inline-block;font-family:var(--pf);font-size:14px;color:var(--gold);font-weight:700;margin-bottom:8px;}
+.qtext{font-size:17px;color:var(--navy);font-weight:600;margin-bottom:18px;line-height:1.45;}
+.scale-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:8px;}
+.scale-btn{border:1.5px solid var(--line);border-radius:9px;padding:14px 4px 10px;text-align:center;cursor:pointer;background:#fff;transition:all .12s;}
+.scale-btn:hover{border-color:var(--gold);background:var(--goldsoft);}
+.scale-btn.sel{border-color:var(--gold);background:var(--navy);color:#fff;}
+.scale-btn .n{font-family:var(--pf);font-size:22px;font-weight:700;color:var(--navy);display:block;}
+.scale-btn.sel .n{color:var(--gold);}
+.scale-btn .t{font-size:10.5px;color:var(--inksoft);line-height:1.25;margin-top:4px;display:block;}
+.scale-btn.sel .t{color:var(--light);}
+.scale-legend{font-size:11.5px;color:var(--golddk);display:flex;justify-content:space-between;margin-top:2px;}
+.navbtns{display:flex;justify-content:space-between;gap:12px;margin-top:24px;}
+.section-intro{text-align:center;padding:30px 0;}
+.section-intro .big{font-family:var(--pf);font-size:clamp(30px,6vw,46px);color:var(--gold);font-weight:700;}
+.section-intro h2{font-size:26px;margin:6px 0 8px;}
+.section-intro p{color:var(--inksoft);font-size:15px;max-width:420px;margin:0 auto;}
+
+/* result */
+.res-hero{background:var(--navy);color:#fff;border-radius:16px;padding:34px 30px;text-align:center;margin-bottom:20px;}
+.res-hero .eyebrow{margin-bottom:12px;}
+.res-score{font-family:var(--pf);font-size:64px;font-weight:700;color:var(--gold);line-height:1;}
+.res-band{font-size:19px;color:#fff;margin-top:6px;font-weight:600;}
+.res-hero p{color:var(--light);font-size:14px;margin-top:12px;}
+.trus{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px;}
+.tru{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 16px;text-align:center;}
+.tru.nghen{border:2px solid var(--warn);}
+.tru .lbl{font-size:13px;color:var(--inksoft);font-weight:600;}
+.tru .val{font-family:var(--pf);font-size:34px;font-weight:700;color:var(--navy);margin:4px 0;}
+.tru .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;}
+.tru .bar i{display:block;height:100%;background:var(--gold);}
+.tru.nghen .bar i{background:var(--warn);}
+.tru .tag{display:inline-block;font-size:10px;font-weight:700;color:#fff;background:var(--warn);padding:1px 8px;border-radius:10px;margin-top:8px;letter-spacing:.5px;}
+.res-note{background:var(--goldsoft);border:1px solid var(--gold);border-radius:12px;padding:20px 22px;margin-bottom:20px;font-size:15px;color:var(--inksoft);}
+.res-note b{color:var(--navy);}
+.res-cta{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 24px;text-align:center;}
+.res-cta h3{font-size:22px;margin-bottom:8px;}
+.res-cta p{color:var(--inksoft);font-size:15px;margin-bottom:18px;}
+.res-cta .line{font-family:var(--pf);font-style:italic;font-size:16px;color:var(--gold);margin:14px 0 20px;}
+.foot{text-align:center;color:#7a8394;font-size:13px;padding:26px 0 40px;}
+.foot b{color:var(--navy);}
+.disc{font-size:12px;color:#8a7332;text-align:center;margin-top:14px;font-style:italic;}
+
+@media(max-width:560px){
+  .scale-row{grid-template-columns:repeat(5,1fr);gap:5px;}
+  .scale-btn{padding:10px 2px 8px;}
+  .scale-btn .n{font-size:18px;}
+  .scale-btn .t{display:none;}
+  .trus{grid-template-columns:1fr;}
+  .hero-card,.qbox,.card{padding:24px 20px;}
+}
+@media(prefers-reduced-motion:reduce){.screen.active{animation:none;}.btn{transition:none;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="shell">
+    <a class="brand" href="index.html">EMMY<span>·</span>HẢI</a>
+    <div class="pct" id="pct"></div>
+  </div>
+</div>
+<div class="pbar"><div class="pfill" id="pfill"></div></div>
+
+<div class="shell">
+
+<!-- WELCOME -->
+<section class="screen active" id="s-welcome">
+  <div class="hero-card">
+    <div class="eyebrow">Bài Khám Sức Khỏe Vận Hành Doanh Nghiệp</div>
+    <h1>Doanh nghiệp của anh/chị đang chạy bằng hệ thống — hay bằng sức của chính anh/chị?</h1>
+    <div class="q">"Công ty này còn chạy được không, nếu không có anh/chị?"</div>
+    <div class="meta"><span><b>45 câu</b> · ~15–20 phút</span><span>Không chấm điểm anh/chị</span><span>Kết quả ngay khi xong</span></div>
+  </div>
+  <div class="rules">
+    <div class="rule-item"><b>Không có đáp án đúng hay sai.</b> Bài này chỉ có giá trị nếu anh/chị trả lời thật — kể cả những chỗ chưa ổn.</div>
+    <div class="rule-item"><b>Trả lời theo thực tế đang diễn ra, không theo dự định.</b> Câu hỏi là "hiện nay đang thế nào", không phải "đáng lẽ phải thế nào".</div>
+    <div class="rule-item"><b>Anh/chị sẽ nhận lại gì.</b> Điểm theo 3 trụ cột (Con người · Hệ thống · Người đứng đầu), điểm nghẽn lớn nhất, và những cảnh báo cần biết nếu có.</div>
+  </div>
+  <div class="center"><button class="btn" onclick="go('info')">Bắt đầu bài khám →</button></div>
+</section>
+
+<!-- INFO -->
+<section class="screen" id="s-info">
+  <div class="card">
+    <h2>Thông tin để đọc kết quả cho đúng</h2>
+    <p class="lead">Emmy sẽ đọc kỹ từng câu trả lời — những thông tin này giúp đọc kết quả sát với thực tế công ty anh/chị.</p>
+    <div class="field"><label>Họ tên</label><input id="f_name" type="text" placeholder="Anh/chị tên gì?"></div>
+    <div class="field"><label>Số điện thoại / Zalo</label><input id="f_phone" type="tel" placeholder="Để Emmy gửi kết quả"></div>
+    <div class="field"><label>Email</label><input id="f_email" type="email" placeholder="name@email.com"></div>
+    <div class="field"><label>Tên công ty</label><input id="f_company" type="text"></div>
+    <div class="field"><label>Anh/chị đang giữ vai gì trong công ty?</label>
+      <select id="f_role"><option value="">— Chọn —</option>
+      <option>Chủ / CEO — tôi là người quyết cuối cùng</option>
+      <option>Điều hành / quản lý cấp cao — tôi quyết trong phạm vi được giao</option>
+      <option>Quản lý cấp trung</option><option>Nhân viên</option>
+      <option>Tôi đang điền giúp cho người khác</option></select></div>
+    <div class="field"><label>Công ty làm mảng gì? (ngắn gọn)</label><input id="f_field" type="text"></div>
+    <div class="field"><label>Quy mô nhân sự</label>
+      <select id="f_size"><option value="">— Chọn —</option><option>Dưới 10 người</option><option>10–30 người</option><option>30–100 người</option><option>Trên 100 người</option></select></div>
+    <div class="field"><label>Doanh thu năm gần nhất</label>
+      <select id="f_rev"><option value="">— Chọn —</option><option>Dưới 20 tỷ</option><option>20–50 tỷ</option><option>50–200 tỷ</option><option>Trên 200 tỷ</option><option>Không tiện chia sẻ</option></select></div>
+  </div>
+  <div class="navbtns"><button class="btn ghost" onclick="go('welcome')">← Quay lại</button><button class="btn" onclick="startQuestions()">Vào bài khám →</button></div>
+</section>
+
+<!-- QUESTIONS (dynamic) -->
+<section class="screen" id="s-questions"></section>
+
+<!-- FINAL open question -->
+<section class="screen" id="s-final">
+  <div class="card">
+    <div class="q-part">Câu cuối cùng</div>
+    <h2 style="margin:6px 0 8px;">Nếu ngày mai anh/chị sửa được ĐÚNG MỘT thứ trong công ty — anh/chị sửa gì?</h2>
+    <p class="lead">Câu này không tính điểm. Nhưng với Emmy, nó thường là câu đáng giá nhất trong cả bài.</p>
+    <div class="field"><textarea id="f_onething" rows="4" placeholder="Viết thật ngắn cũng được..."></textarea></div>
+  </div>
+  <div class="navbtns"><button class="btn ghost" onclick="backToLastQ()">← Quay lại</button><button class="btn" onclick="finish()">Xem kết quả →</button></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result"></section>
+
+</div>
+
+<script>
+const DATA = {"scale": [[1, "Không có / chưa từng làm"], [2, "Có trên giấy hoặc nói miệng — thực tế không ai theo"], [3, "Có, nhưng tùy người tùy lúc — dưới một nửa thật sự theo"], [4, "Có, phần lớn theo"], [5, "Có, ai cũng theo — kể cả khi tôi vắng mặt"]], "questions": [{"id": 1, "part": 1, "sub": "Mỗi người biết rõ kết quả mình phải tạo ra", "type": "choice", "q": "Nếu ngay bây giờ anh/chị hỏi 5 người chủ chốt “thành công ở vị trí của em là gì?” — bao nhiêu người trả lời được bằng MỘT CON SỐ cụ thể (không phải kể ra công việc họ làm)?", "opts": [{"t": "0 người", "s": 1}, {"t": "1 người", "s": 2}, {"t": "2–3 người", "s": 3}, {"t": "4 người", "s": 4}, {"t": "Cả 5 người", "s": 5}]}, {"id": 2, "part": 1, "sub": null, "type": "scale", "q": "Nếu anh/chị hỏi một nhân viên “thành công ở vị trí của em là gì?”, họ trả lời được bằng con số cụ thể."}, {"id": 3, "part": 1, "sub": null, "type": "scale", "q": "Khi một kết quả không đạt, mọi người biết rõ ai chịu trách nhiệm — không đùn đẩy, không mơ hồ “lỗi chung”."}, {"id": 4, "part": 1, "sub": "Nhân viên được tự quyết tới đâu", "type": "scale", "q": "Có quy định rõ ràng nhân viên được tự quyết việc gì, tới mức nào, trước khi phải hỏi anh/chị."}, {"id": 5, "part": 1, "sub": null, "type": "choice", "q": "Trong 30 ngày qua, bao nhiêu lần anh/chị đã lật lại (đổi hoặc bác) một quyết định mà nhân viên đã ra ĐÚNG trong ngưỡng quyền của họ?", "opts": [{"t": "Trên 5 lần", "s": 1}, {"t": "3–5 lần", "s": 2}, {"t": "1–2 lần", "s": 3}, {"t": "Không nhớ có lần nào", "s": 4}, {"t": "0 lần — và tôi chắc chắn", "s": 5}]}, {"id": 6, "part": 1, "sub": null, "type": "scale", "q": "Anh/chị ít khi bị kéo vào những quyết định nhỏ mà lẽ ra người khác đã tự quyết được."}, {"id": 7, "part": 1, "sub": "Người mới nhanh vào việc", "type": "scale", "q": "Người mới có tài liệu hướng dẫn và quy trình hội nhập rõ ràng, không phải “tự mò, hỏi người bên cạnh”."}, {"id": 8, "part": 1, "sub": null, "type": "scale", "q": "Người mới nói chung tạo ra kết quả thật khá nhanh và đều đặn qua các lần tuyển."}, {"id": 9, "part": 1, "sub": null, "type": "scale", "q": "Việc đón và đào tạo người mới không ngốn quá nhiều thời gian của những người cũ."}, {"id": 10, "part": 1, "sub": "Người giỏi có đường phát triển", "type": "scale", "q": "Mỗi người chủ chốt biết 1–2 năm tới họ có thể phát triển tới đâu trong công ty."}, {"id": 11, "part": 1, "sub": null, "type": "choice", "q": "Kế hoạch phát triển cho từng người quan trọng hiện đang nằm Ở ĐÂU?", "opts": [{"t": "Chưa có", "s": 1}, {"t": "Trong đầu tôi", "s": 2}, {"t": "Có viết ra nhưng chưa nói với họ", "s": 3}, {"t": "Đã viết, đã nói — chưa có mốc thời gian", "s": 4}, {"t": "Đã viết, đã nói, có mốc, có theo dõi", "s": 5}]}, {"id": 12, "part": 1, "sub": null, "type": "scale", "q": "Anh/chị có thể nói rõ, với từng người giỏi, lý do cụ thể vì sao họ chọn ở lại."}, {"id": 13, "part": 1, "sub": "Phản hồi thường xuyên", "type": "scale", "q": "Nhân viên được góp ý/phản hồi đều đặn, không phải chỉ khi có chuyện mới bị nhắc."}, {"id": 14, "part": 1, "sub": null, "type": "scale", "q": "Có nhịp đánh giá định kỳ, có cấu trúc — không phải tùy hứng."}, {"id": 15, "part": 1, "sub": null, "type": "scale", "q": "Nhân viên biết rõ mình đang làm tốt hay chưa tốt ở đâu, không phải tự đoán."}, {"id": 16, "part": 2, "sub": "Quy trình cho việc lặp lại", "type": "scale", "q": "Năm việc lặp lại nhiều nhất trong công ty đều có hướng dẫn/quy trình được viết ra rõ ràng."}, {"id": 17, "part": 2, "sub": null, "type": "scale", "q": "Những hướng dẫn đó được tuân theo trong thực tế, không phải chỉ nằm trên giấy cho đẹp."}, {"id": 18, "part": 2, "sub": null, "type": "scale", "q": "Hai người khác nhau làm cùng một việc thì cho ra kết quả gần như nhau, không phải mỗi người một kiểu."}, {"id": 19, "part": 2, "sub": "Học từ sự cố", "type": "scale", "q": "Khi có sự cố, nó được ghi lại và quy trình được cập nhật để lần sau không lặp lại."}, {"id": 20, "part": 2, "sub": null, "type": "scale", "q": "Cơ chế ngăn sự cố lặp lại được áp dụng nhất quán cho mọi sự cố."}, {"id": 21, "part": 2, "sub": null, "type": "choice", "q": "Khi có sự cố, CÂU HỎI ĐẦU TIÊN trong công ty thường là gì?", "opts": [{"t": "“Ai làm?”", "s": 1}, {"t": "“Ai chịu trách nhiệm?”", "s": 2}, {"t": "Vừa hỏi ai, vừa hỏi vì sao", "s": 3}, {"t": "“Vì sao hệ thống lại cho phép chuyện này xảy ra?”", "s": 4}, {"t": "“Chỗ nào trong quy trình cần sửa để không lặp lại?”", "s": 5}]}, {"id": 22, "part": 2, "sub": "Kiến thức không nằm trong đầu một người", "type": "choice", "q": "Có bao nhiêu việc quan trọng mà CHỈ ĐÚNG MỘT người trong công ty làm được?", "opts": [{"t": "Trên 10 việc", "s": 1}, {"t": "6–10 việc", "s": 2}, {"t": "3–5 việc", "s": 3}, {"t": "1–2 việc", "s": 4}, {"t": "0 việc", "s": 5}]}, {"id": 23, "part": 2, "sub": null, "type": "scale", "q": "Nếu một người chủ chốt nghỉ đột ngột, công ty không bị mất đi năng lực then chốt."}, {"id": 24, "part": 2, "sub": null, "type": "scale", "q": "Việc khó nhất không phải chỉ đúng một người mới làm được."}, {"id": 25, "part": 2, "sub": "Thông tin chảy thông suốt", "type": "scale", "q": "Thông tin cần thiết đến đúng người, đúng lúc — không bị tắc lại chờ một người."}, {"id": 26, "part": 2, "sub": null, "type": "scale", "q": "Công việc không phải dừng lại chờ một người duyệt mới chạy tiếp được."}, {"id": 27, "part": 2, "sub": null, "type": "scale", "q": "Các bộ phận phối hợp được với nhau mà không cần anh/chị đứng giữa làm cầu nối."}, {"id": 28, "part": 2, "sub": "Công ty chạy không phụ thuộc một cá nhân", "type": "scale", "q": "Công việc hằng ngày vẫn chạy khi một người bất kỳ — kể cả người giỏi — vắng mặt."}, {"id": 29, "part": 2, "sub": null, "type": "scale", "q": "Anh/chị có thể chỉ rõ điểm nào trong cách làm (quy trình, hệ thống) đã tạo ra kết quả tốt."}, {"id": 30, "part": 2, "sub": null, "type": "scale", "q": "Công ty không bị “đứng hình” khi thiếu một mắt xích con người nào đó."}, {"id": 31, "part": 3, "sub": "Quyết định ở đúng cấp", "type": "choice", "q": "Trong 7 ngày qua, khoảng bao nhiêu PHẦN TRĂM quyết định của công ty phải qua anh/chị?", "opts": [{"t": "Trên 80%", "s": 1}, {"t": "60–80%", "s": 2}, {"t": "40–60%", "s": 3}, {"t": "20–40%", "s": 4}, {"t": "Dưới 20%", "s": 5}]}, {"id": 32, "part": 3, "sub": null, "type": "scale", "q": "Anh/chị ít khi là người DUY NHẤT quyết được những việc quan trọng."}, {"id": 33, "part": 3, "sub": null, "type": "scale", "q": "Cấp dưới tự tin ra quyết định trong khung đã định, không phải chờ anh/chị cho ý kiến từng việc."}, {"id": 34, "part": 3, "sub": "Công ty vận hành ổn khi anh/chị vắng", "type": "choice", "q": "Trong 12 tháng qua, lần vắng mặt LIÊN TỤC DÀI NHẤT của anh/chị — hoàn toàn không xử lý công việc — là bao lâu?", "opts": [{"t": "Chưa bao giờ vắng quá 1 ngày", "s": 1}, {"t": "1–2 ngày", "s": 2}, {"t": "3–5 ngày", "s": 3}, {"t": "1–2 tuần", "s": 4}, {"t": "Trên 2 tuần", "s": 5}]}, {"id": 35, "part": 3, "sub": null, "type": "scale", "q": "Cách làm việc của team giữ nguyên một cách nhất quán dù anh/chị vui, bận, hay đi công tác."}, {"id": 36, "part": 3, "sub": null, "type": "scale", "q": "Khi anh/chị không ở đó, nhân viên vẫn biết rõ kỳ vọng là gì, không phải chờ anh/chị về mới rõ."}, {"id": 37, "part": 3, "sub": "Công ty tự cải thiện", "type": "scale", "q": "Công ty tự học và tự cải thiện mà không cần anh/chị liên tục nhắc nhở."}, {"id": 38, "part": 3, "sub": null, "type": "scale", "q": "Có cơ chế để cái làm tốt được nhân rộng, cái làm dở được sửa."}, {"id": 39, "part": 3, "sub": null, "type": "choice", "q": "So với năm ngoái, công ty vận hành tốt hơn NHỜ ĐÂU?", "opts": [{"t": "Không tốt hơn", "s": 1}, {"t": "Tốt hơn vì tôi chạy nhiều hơn", "s": 2}, {"t": "Vừa nhờ tôi, vừa nhờ hệ thống", "s": 3}, {"t": "Chủ yếu nhờ hệ thống — tôi vẫn phải đẩy", "s": 4}, {"t": "Nhờ hệ thống — gần như không cần tôi đẩy", "s": 5}]}, {"id": 40, "part": 3, "sub": "Có người kế thừa", "type": "scale", "q": "Có ít nhất một người đủ sẵn sàng tiếp quản một phần vai trò của anh/chị khi cần."}, {"id": 41, "part": 3, "sub": null, "type": "scale", "q": "Nếu anh/chị nghỉ dài hạn, có người thay được, không phải để lại một khoảng trống."}, {"id": 42, "part": 3, "sub": null, "type": "scale", "q": "Anh/chị đang chủ động đào tạo 2–3 người cho vai trò lãnh đạo trong tương lai."}, {"id": 43, "part": 3, "sub": "Có cơ chế quản trị", "type": "scale", "q": "Có nhịp họp/rà soát tình hình kinh doanh định kỳ, có cấu trúc — không phải chỉ họp khi có vấn đề."}, {"id": 44, "part": 3, "sub": null, "type": "choice", "q": "Anh/chị theo dõi bao nhiêu CHỈ SỐ SỨC KHỎE của công ty hàng tuần?", "opts": [{"t": "0 — chỉ xem khi có chuyện", "s": 1}, {"t": "1–2 chỉ số", "s": 2}, {"t": "3–4 chỉ số", "s": 3}, {"t": "5–7 chỉ số", "s": 4}, {"t": "5–7 chỉ số, có ngưỡng cảnh báo", "s": 5}]}, {"id": 45, "part": 3, "sub": null, "type": "scale", "q": "Có cơ chế giúp anh/chị biết khi nào cần can thiệp, khi nào không — thay vì phải giám sát mọi thứ."}]};
+const state = {step:'welcome', qi:0, answers:{}, info:{}};
+const Q = DATA.questions;
+
+function go(step){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s-'+step).classList.add('active');
+  state.step=step;
+  window.scrollTo({top:0,behavior:'auto'});
+  updateProgress();
+}
+function updateProgress(){
+  let pct=0;
+  if(state.step==='welcome')pct=0;
+  else if(state.step==='info')pct=3;
+  else if(state.step==='questions')pct=5+Math.round((state.qi/Q.length)*88);
+  else if(state.step==='final')pct=95;
+  else if(state.step==='result')pct=100;
+  document.getElementById('pfill').style.width=pct+'%';
+  document.getElementById('pct').textContent = (state.step==='questions')? ('Câu '+(state.qi+1)+'/'+Q.length) : (pct+'%');
+}
+function startQuestions(){ state.qi=0; go('questions'); renderQ(); }
+
+function partName(p){return p===1?'Phần 1 — Con người':p===2?'Phần 2 — Hệ thống':'Phần 3 — Người đứng đầu';}
+
+function renderQ(){
+  const q=Q[state.qi];
+  const host=document.getElementById('s-questions');
+  let sub = q.sub? ('<div class="q-sub">'+q.sub+'</div>') : '';
+  let inner='';
+  if(q.type==='scale'){
+    let btns='';
+    for(let i=1;i<=5;i++){
+      const lab=DATA.scale[i-1][1];
+      const sel=(state.answers[q.id]===i)?' sel':'';
+      btns+='<div class="scale-btn'+sel+'" onclick="answer('+q.id+','+i+')"><span class="n">'+i+'</span><span class="t">'+lab+'</span></div>';
+    }
+    inner='<div class="scale-row">'+btns+'</div><div class="scale-legend"><span>1 · Không có</span><span>5 · Ai cũng theo</span></div>';
+  } else {
+    let opts='';
+    q.opts.forEach(o=>{
+      const sel=(state.answers[q.id]===o.s)?' sel':'';
+      opts+='<div class="opt'+sel+'" onclick="answer('+q.id+','+o.s+')"><span class="dot"></span><span>'+o.t+'</span></div>';
+    });
+    inner='<div class="optwrap">'+opts+'</div>';
+  }
+  host.innerHTML =
+    '<div class="q-head"><div class="q-part">'+partName(q.part)+'</div></div>'+sub+
+    '<div class="qbox"><span class="qnum">Câu '+q.id+'</span><div class="qtext">'+q.q+'</div>'+inner+'</div>'+
+    '<div class="navbtns"><button class="btn ghost" onclick="prevQ()">← Quay lại</button>'+
+    '<button class="btn" id="nextbtn" onclick="nextQ()" '+(state.answers[q.id]?'':'disabled')+'>'+
+    (state.qi===Q.length-1?'Câu cuối →':'Tiếp →')+'</button></div>';
+  updateProgress();
+}
+function answer(id,val){ state.answers[id]=val; renderQ(); }
+function nextQ(){
+  if(!state.answers[Q[state.qi].id])return;
+  if(state.qi<Q.length-1){state.qi++;renderQ();window.scrollTo({top:0,behavior:'smooth'});}
+  else{go('final');}
+}
+function prevQ(){
+  if(state.qi>0){state.qi--;renderQ();window.scrollTo({top:0,behavior:'smooth'});}
+  else{go('info');}
+}
+function backToLastQ(){ state.qi=Q.length-1; go('questions'); renderQ(); }
+
+function scoreTru(part){
+  let sum=0,n=0;
+  Q.filter(q=>q.part===part).forEach(q=>{sum+=state.answers[q.id]||0;n++;});
+  return Math.round((sum/(n*5))*100);
+}
+function band(pct){
+  if(pct<35)return['Phụ thuộc vào chủ','Công ty gần như chạy bằng sức của anh/chị.'];
+  if(pct<50)return['Đang hình thành','Một vài mảnh hệ thống đã có, nhưng chưa đủ để tự đứng.'];
+  if(pct<65)return['Ổn định cơ bản','Nền đã vững ở vài chỗ — còn điểm nghẽn giữ công ty phụ thuộc.'];
+  if(pct<80)return['Vận hành có hệ thống','Phần lớn việc chạy bằng hệ thống, chủ đã nhẹ đi rõ.'];
+  return['Tự vận hành','Công ty chạy tốt cả khi anh/chị không có mặt.'];
+}
+function finish(){
+  state.info={
+    name:val('f_name'),phone:val('f_phone'),email:val('f_email'),company:val('f_company'),
+    role:val('f_role'),field:val('f_field'),size:val('f_size'),rev:val('f_rev'),onething:val('f_onething')
+  };
+  const t1=scoreTru(1),t2=scoreTru(2),t3=scoreTru(3);
+  const overall=Math.round((t1+t2+t3)/3);
+  const trus=[['Con người',t1],['Hệ thống',t2],['Người đứng đầu',t3]];
+  const low=trus.reduce((a,b)=>b[1]<a[1]?b:a);
+  const [bname,bdesc]=band(overall);
+  let truHtml='';
+  trus.forEach(([lbl,v])=>{
+    const nghen=(lbl===low[0]);
+    truHtml+='<div class="tru'+(nghen?' nghen':'')+'"><div class="lbl">'+lbl+'</div><div class="val">'+v+'%</div><div class="bar"><i style="width:'+v+'%"></i></div>'+(nghen?'<div class="tag">Điểm nghẽn</div>':'')+'</div>';
+  });
+  document.getElementById('s-result').innerHTML =
+    '<div class="res-hero"><div class="eyebrow">Kết quả sơ bộ</div>'+
+    '<div class="res-score">'+overall+'%</div><div class="res-band">'+bname+'</div>'+
+    '<p>'+bdesc+'</p></div>'+
+    '<div class="trus">'+truHtml+'</div>'+
+    '<div class="res-note"><b>Điểm nghẽn lớn nhất của anh/chị đang ở: '+low[0]+' ('+low[1]+'%).</b> Đây là chỗ đang giữ công ty phụ thuộc vào anh/chị nhiều nhất. Emmy sẽ đọc kỹ từng câu trả lời — không chỉ nhìn con số tổng — và gửi anh/chị bản đọc chi tiết cùng những cảnh báo cần biết, trong vòng 48 giờ.</div>'+
+    '<div class="res-cta"><div class="eyebrow" style="color:var(--gold)">Muốn đi sâu hơn?</div>'+
+    '<h3>Buổi chẩn đoán doanh nghiệp — 90 phút, không tính phí</h3>'+
+    '<p>Không phải buổi bán hàng: mình đi vào đúng chỗ đang nghẽn của công ty anh/chị, không nói chung chung.</p>'+
+    '<div class="line">Xây hệ thống để anh/chị không còn là người không thể thiếu trong chính công ty mình.</div>'+
+    '<a class="btn" href="https://zalo.me/0903199810">Đặt buổi chẩn đoán →</a>'+
+    '<p style="margin-top:14px;font-size:13px;">Hoặc nhắn Zalo 0903 199 810 · cs@emmyhai.com</p></div>'+
+    '<div class="disc">Điểm số ở đây là kết quả sơ bộ tự động — quan sát được, chưa kiểm định độc lập. Bản đọc chính thức do Emmy thực hiện thủ công.</div>'+
+    '<div class="foot"><b>Emmy Lê Thị Hải</b> — Cố vấn System Leadership<br>www.emmyhai.com · Zalo 0903 199 810</div>';
+  go('result');
+  // Hook for backend submit — Emmy dev wires this to the live lead endpoint:
+  // submitLead({info:state.info, answers:state.answers, scores:{t1,t2,t3,overall}, band:bname});
+}
+function val(id){const e=document.getElementById(id);return e?e.value.trim():'';}
+updateProgress();
+</script>
+</body>
+</html>
