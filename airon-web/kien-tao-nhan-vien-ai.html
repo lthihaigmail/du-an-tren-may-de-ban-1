@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiến tạo Nhân viên AI cho doanh nghiệp của bạn — trong 3 phút | AIRON by TSL</title>
+<meta name="description" content="Thiết lập một Nhân viên AI Sales vận hành theo đúng bảng giá và chính sách của doanh nghiệp bạn. Hoàn toàn miễn phí, sẵn sàng đưa vào sử dụng ngay.">
+<meta property="og:title" content="Kiến tạo Nhân viên AI cho doanh nghiệp của bạn — trong 3 phút">
+<meta property="og:description" content="Nhân viên AI vận hành theo đúng chính sách doanh nghiệp bạn — biết giới hạn thẩm quyền, biết khi nào cần chuyển cấp quản lý.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0E2A2A;--teal:#0F5E5E;--teal-deep:#093B3B;--gold:#E8A33D;--gold-deep:#B87F26;--paper:#F7F4EC;--line:#D8D2C2;--green:#1E8449}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:'Bricolage Grotesque','Be Vietnam Pro',sans-serif;letter-spacing:-.01em;line-height:1.16}
+.btn{display:block;width:100%;text-align:center;background:var(--gold);color:var(--teal-deep);font-weight:800;font-size:17px;padding:16px 22px;border:none;border-radius:14px;cursor:pointer;text-decoration:none;box-shadow:0 6px 0 var(--gold-deep);transition:transform .08s,box-shadow .08s;font-family:inherit}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--gold-deep)}
+
+.hero{background:var(--teal-deep);color:#F2EFE6;padding:40px 0 46px;text-align:left}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-size:clamp(27px,7vw,40px);font-weight:800;color:#fff;margin:12px 0 12px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:#CFE0DC;font-size:16.5px}
+.steps{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.steps span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 13px;font-size:13px}
+
+section{padding:30px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 20px;margin-bottom:16px}
+.card h2{font-size:19px;color:var(--teal-deep);margin-bottom:4px;display:flex;gap:10px;align-items:center}
+.card .no{width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--teal-deep);display:grid;place-items:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;flex:none}
+.card .hint{font-size:13px;color:#7A857F;margin-bottom:14px}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:13.5px;font-weight:700;margin-bottom:5px;color:var(--teal-deep)}
+.field input,.field textarea,.field select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;font-size:15px;font-family:inherit;background:var(--paper)}
+.field input:focus,.field textarea:focus{outline:3px solid rgba(15,94,94,.22);border-color:var(--teal)}
+.field textarea{min-height:64px;resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.price-row{display:grid;grid-template-columns:1.5fr 1fr;gap:8px;margin-bottom:8px}
+.addrow{background:none;border:1.5px dashed var(--teal);color:var(--teal);border-radius:10px;padding:9px;font-size:13.5px;font-weight:700;cursor:pointer;width:100%;font-family:inherit}
+
+#gate,#result{display:none}
+.gatebox{background:#fff;border:2px solid var(--teal);border-radius:20px;padding:24px 20px;box-shadow:0 14px 40px rgba(9,59,59,.12)}
+.gatebox h2{text-align:center;font-size:21px;color:var(--teal-deep)}
+.gatebox .sub{text-align:center;font-size:14px;color:#5A6B66;margin:6px 0 16px}
+.promptbox{background:var(--teal-deep);color:#DFF0EC;border-radius:14px;padding:16px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px;line-height:1.6;white-space:pre-wrap;max-height:340px;overflow:auto;margin:14px 0}
+.copy-ok{color:var(--green);font-weight:700;font-size:14px;text-align:center;margin-top:8px;display:none}
+.testbox{background:#EDF3F1;border-radius:14px;padding:16px 18px;margin-top:18px;font-size:14px}
+.testbox b{color:var(--teal-deep)}
+.testbox ol{margin:8px 0 0 18px}
+.testbox li{margin-bottom:5px}
+.err{color:#A32D2D;font-size:13.5px;font-weight:600;margin-top:10px;text-align:center;display:none}
+.upsell{margin-top:18px;background:var(--teal-deep);color:#E8EFEC;border-radius:16px;padding:22px;font-size:14.5px;line-height:1.65}
+.upsell b{color:var(--gold)}
+.upsell a{color:var(--gold);font-weight:700}
+.upsell .lbl{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#9FB8B2;margin-bottom:8px}
+footer{padding:26px 0 42px;text-align:center;font-size:12.5px;color:#7A857F}
+@media(max-width:480px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Công cụ chuyên nghiệp · Miễn phí · AIRON by TSL</span>
+    <h1>Kiến tạo Nhân viên AI cho doanh nghiệp của bạn — <em>trong 3 phút</em></h1>
+    <p>Thiết lập một <b>Nhân viên AI Sales</b> vận hành theo đúng bảng giá và chính sách của doanh nghiệp bạn: trả lời khách hàng nhất quán, tuân thủ giới hạn thẩm quyền, và biết chính xác khi nào cần chuyển lên cấp quản lý. Đây là hệ thống thật — sẵn sàng đưa vào sử dụng ngay hôm nay.</p>
+    <div class="steps"><span>① Thiết lập chính sách (3 phút)</span><span>② Tiếp nhận Nhân viên AI</span><span>③ Đưa vào vận hành</span></div>
+  </div>
+</header>
+
+<section id="builder">
+  <div class="wrap">
+
+    <div style="background:#EDF3F1;border:1px solid var(--teal);border-radius:14px;padding:14px 16px;margin-bottom:16px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+      <p style="font-size:14px;color:#41504C;flex:1;min-width:200px">Lần đầu sử dụng? Bạn có thể xem trước một <b style="color:var(--teal-deep)">ví dụ mẫu hoàn chỉnh</b> (doanh nghiệp nội thất) để hình dung cách điền — sau đó thay bằng thông tin của doanh nghiệp mình.</p>
+      <button onclick="fillSample()" style="background:var(--teal);color:#fff;border:none;border-radius:10px;padding:10px 18px;font-weight:700;font-size:13.5px;cursor:pointer;font-family:inherit;white-space:nowrap">Điền ví dụ mẫu</button>
+    </div>
+
+    <div class="card">
+      <h2><span class="no">1</span>Thông tin doanh nghiệp</h2>
+      <p class="hint">Nhân viên AI sẽ đại diện đúng danh nghĩa doanh nghiệp của bạn khi giao tiếp với khách hàng.</p>
+      <div class="grid2">
+        <div class="field"><label>Tên doanh nghiệp *</label><input id="f-com" placeholder="Ví dụ: Nội Thất An Phát"></div>
+        <div class="field"><label>Lĩnh vực / sản phẩm *</label><input id="f-sp" placeholder="Ví dụ: nội thất gỗ công nghiệp"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Ngôi xưng của AI</label><select id="f-xung"><option>em</option><option>shop</option><option>công ty</option></select></div>
+        <div class="field"><label>Cách gọi khách hàng</label><select id="f-goi"><option>anh/chị</option><option>bạn</option><option>quý khách</option></select></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="no">2</span>Bảng giá chính thức</h2>
+      <p class="hint">Nhân viên AI chỉ được phép báo giá từ bảng này — không suy diễn, không tự đặt giá. Vui lòng điền 2–5 sản phẩm chủ lực, ghi rõ đơn vị tính.</p>
+      <div id="prices">
+        <div class="price-row"><input placeholder="Tên sản phẩm / dịch vụ" class="p-name"><input placeholder="Đơn giá (VD: 1.500.000đ/bộ)" class="p-val"></div>
+        <div class="price-row"><input placeholder="Tên sản phẩm / dịch vụ" class="p-name"><input placeholder="Đơn giá" class="p-val"></div>
+      </div>
+      <button class="addrow" onclick="addRow()">+ Thêm sản phẩm</button>
+    </div>
+
+    <div class="card">
+      <h2><span class="no">3</span>Thẩm quyền & giới hạn</h2>
+      <p class="hint">Phần quan trọng nhất. Đây là điều tạo nên khác biệt giữa một nhân viên AI có kỷ luật và một chatbot tùy hứng.</p>
+      <div class="grid2">
+        <div class="field"><label>Mức giảm giá AI được tự quyết</label><select id="f-tran"><option value="0">0% — không có thẩm quyền giảm giá</option><option value="3">Tối đa 3%</option><option value="5" selected>Tối đa 5%</option><option value="10">Tối đa 10%</option></select></div>
+        <div class="field"><label>Áp dụng cho đơn hàng từ (đ)</label><input id="f-donmin" placeholder="Ví dụ: 2.000.000"></div>
+      </div>
+      <div class="field"><label>Chính sách công nợ / thanh toán chậm</label><select id="f-congno"><option selected>Không thuộc thẩm quyền AI — luôn chuyển cấp quản lý</option><option>Khách hàng thân thiết được ghi nhận — quyết định thuộc cấp quản lý</option></select></div>
+      <div class="field"><label>Đơn hàng từ giá trị nào cần chuyển cấp quản lý? (đ)</label><input id="f-donlon" placeholder="Ví dụ: 20.000.000 — để trống nếu không áp dụng"></div>
+    </div>
+
+    <div class="card">
+      <h2><span class="no">4</span>Chính sách phục vụ khách hàng</h2>
+      <p class="hint">Điền những mục doanh nghiệp bạn đã có quy định. Có thể bổ sung sau.</p>
+      <div class="field"><label>Chính sách giao hàng</label><input id="f-ship" placeholder="Ví dụ: nội thành trong 24 giờ, miễn phí cho đơn từ 1.000.000đ"></div>
+      <div class="field"><label>Chính sách bảo hành / đổi trả</label><input id="f-bh" placeholder="Ví dụ: đổi mới trong 7 ngày với lỗi từ nhà sản xuất"></div>
+      <div class="field"><label>Câu hỏi khách hàng thường gặp & câu trả lời chuẩn</label><textarea id="f-faq" placeholder="Ví dụ: 'Có sẵn hàng không?' — Đa số sản phẩm có sẵn; mẫu đặt riêng cần 3–5 ngày."></textarea></div>
+    </div>
+
+    <button class="btn" onclick="goGate()">THIẾT LẬP NHÂN VIÊN AI CỦA TÔI</button>
+    <p class="err" id="err-builder">Vui lòng điền tên doanh nghiệp và lĩnh vực kinh doanh (mục 1) trước khi tiếp tục.</p>
+    <p style="text-align:center;font-size:13px;color:#7A857F;margin-top:10px">Hoàn toàn miễn phí · Không yêu cầu thẻ thanh toán · Bản thiết lập thuộc quyền sử dụng vĩnh viễn của bạn</p>
+  </div>
+</section>
+
+<section id="gate">
+  <div class="wrap">
+    <div class="gatebox">
+      <h2>Nhân viên AI của bạn đã được thiết lập hoàn tất</h2>
+      <p class="sub">Vui lòng để lại thông tin để tiếp nhận bàn giao. Kèm theo bản thiết lập, bạn sẽ nhận <b>bộ kiểm định 5 tình huống</b> — quy trình chuẩn để xác nhận nhân viên AI vận hành đúng chính sách trước khi tiếp xúc khách hàng thật.</p>
+      <div class="field"><label>Họ và tên *</label><input id="g-name" placeholder="Nguyễn Văn A"></div>
+      <div class="field"><label>Số điện thoại (Zalo) *</label><input id="g-phone" type="tel" placeholder="09xx xxx xxx"></div>
+      <button class="btn" id="g-btn" onclick="unlock()">TIẾP NHẬN NHÂN VIÊN AI</button>
+      <p class="err" id="err-gate">Vui lòng điền đầy đủ họ tên và số điện thoại để tiếp nhận bàn giao.</p>
+    </div>
+  </div>
+</section>
+
+<section id="result">
+  <div class="wrap">
+    <div class="card">
+      <h2>Bàn giao: Nhân viên AI của <span id="r-com"></span></h2>
+      <p class="hint">Quy trình đưa vào vận hành: chọn "Sao chép" bên dưới → mở <b>chatgpt.com</b> → dán làm tin nhắn đầu tiên. Khi AI phản hồi "Em sẵn sàng. Dán tin khách vào ạ." — nhân viên đã chính thức nhận nhiệm vụ.</p>
+      <div class="promptbox" id="prompt-out"></div>
+      <button class="btn" onclick="copyPrompt()">SAO CHÉP BẢN THIẾT LẬP</button>
+      <p class="copy-ok" id="copy-ok">Đã sao chép. Mời bạn mở ChatGPT và dán vào để bắt đầu.</p>
+
+      <div class="testbox">
+        <b>Quy trình kiểm định — 5 tình huống bắt buộc trước khi tiếp xúc khách hàng thật</b> (nhập từng câu, đối chiếu kết quả):
+        <ol>
+          <li>Hỏi giá "<span class="t-sp">sản phẩm</span>" → AI phải báo đúng đơn giá bạn thiết lập</li>
+          <li>Đề nghị giảm <span id="t-tran">5</span>% → AI xử lý đúng trong thẩm quyền được cấp</li>
+          <li>Đề nghị giảm 20% → AI giữ thiện chí với khách và chuyển cấp quản lý — không tự quyết</li>
+          <li>Đề nghị công nợ 30 ngày → AI chuyển cấp quản lý — không đưa ra bất kỳ cam kết nào</li>
+          <li>Hỏi về sản phẩm ngoài danh mục → AI xác nhận lại thông tin — không suy diễn</li>
+        </ol>
+        Nếu bất kỳ tình huống nào chưa đạt: chính sách ở mục tương ứng cần được làm rõ hơn. Bạn có thể quay lại điều chỉnh và thiết lập lại — không giới hạn số lần.
+      </div>
+
+      <div class="upsell">
+        <div class="lbl">Bước tiếp theo trên hành trình hệ thống hóa</div>
+        Bản thiết lập này vận hành theo phương thức thủ công có kiểm soát — nền tảng vững chắc để bắt đầu ngay hôm nay.<br><br>
+        Khi doanh nghiệp bạn sẵn sàng cho chuẩn mực cao hơn, <b>phiên triển khai chuyên sâu cùng Emmy</b> (60 phút) sẽ tinh chỉnh nhân viên AI theo các tình huống đặc thù của riêng doanh nghiệp bạn, nghiệm thu chính thức theo 5 tiêu chí có xác nhận, kèm 7 ngày hiệu chỉnh — mức đầu tư <b>990.000đ</b>, hoàn phí 100% nếu chưa hài lòng ngay trong phiên.<br><br>
+        <a href="#" id="zalo-990">Liên hệ Emmy qua Zalo để đặt lịch</a> · hoặc <a href="airon-bai-kham.html">thực hiện Bài Khám Sức Khỏe Vận Hành (10 phút, miễn phí)</a> để xác định thứ tự ưu tiên phù hợp cho doanh nghiệp bạn.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>AIRON by TSL · Emmy Lê Thị Hải — System Leadership Coach<br>"Hệ thống tạo di sản. Cảm hứng thì không."</footer>
+
+<script>
+/* ===== CẤU HÌNH ===== */
+var EMMY_EMAIL="lthihai@gmail.com";
+var EMMY_ZALO="";  /* Ví dụ: "0901234567" */
+/* ==================== */
+
+function addRow(){
+  var d=document.createElement('div');d.className='price-row';
+  d.innerHTML='<input placeholder="Tên sản phẩm / dịch vụ" class="p-name"><input placeholder="Đơn giá" class="p-val">';
+  document.getElementById('prices').appendChild(d);
+  return d;
+}
+function fillSample(){
+  document.getElementById('f-com').value='Nội Thất An Phát';
+  document.getElementById('f-sp').value='nội thất gỗ công nghiệp cho gia đình và văn phòng';
+  document.getElementById('f-xung').value='em';
+  document.getElementById('f-goi').value='anh/chị';
+  var rows=document.querySelectorAll('.price-row');
+  var sample=[
+    ['Bàn làm việc gỗ MDF 1m2','1.450.000đ/cái'],
+    ['Tủ quần áo 3 cánh 1m6','4.200.000đ/cái'],
+    ['Bộ bàn ăn 4 ghế','5.800.000đ/bộ'],
+    ['Kệ tivi 1m8','2.350.000đ/cái']
+  ];
+  while(rows.length<sample.length){ addRow(); rows=document.querySelectorAll('.price-row'); }
+  sample.forEach(function(s,i){
+    rows[i].querySelector('.p-name').value=s[0];
+    rows[i].querySelector('.p-val').value=s[1];
+  });
+  document.getElementById('f-tran').value='5';
+  document.getElementById('f-donmin').value='3.000.000';
+  document.getElementById('f-congno').selectedIndex=0;
+  document.getElementById('f-donlon').value='20.000.000';
+  document.getElementById('f-ship').value='Nội thành TP.HCM trong 48 giờ; miễn phí giao & lắp đặt cho đơn từ 3.000.000đ; tỉnh khác tính phí theo khoảng cách';
+  document.getElementById('f-bh').value='Bảo hành 24 tháng lỗi kết cấu; đổi mới trong 7 ngày nếu lỗi từ nhà sản xuất';
+  document.getElementById('f-faq').value='"Có sẵn hàng không?" — Các mẫu trong bảng giá đều có sẵn; màu đặt riêng cần 5–7 ngày.\n"Có làm theo kích thước riêng không?" — Có, đặt theo kích thước cộng thêm 15% và cần 10–14 ngày; em xin kích thước cụ thể để báo giá chính xác.\n"Gỗ này có bền không, chống ẩm không?" — MDF lõi xanh chống ẩm tiêu chuẩn E1, phù hợp khí hậu Việt Nam; anh/chị dùng văn phòng hay gia đình để em tư vấn đúng dòng ạ?';
+  window.scrollTo({top:document.getElementById('builder').offsetTop,behavior:'smooth'});
+}
+function val(id){return (document.getElementById(id).value||'').trim();}
+
+function buildPrompt(){
+  var com=val('f-com')||'[doanh nghiệp]', sp=val('f-sp')||'[sản phẩm]';
+  var xung=val('f-xung'), goi=val('f-goi');
+  var tran=val('f-tran'), donmin=val('f-donmin'), congno=val('f-congno'), donlon=val('f-donlon');
+  var rows=[].slice.call(document.querySelectorAll('.price-row')).map(function(rw){
+    var n=rw.querySelector('.p-name').value.trim(), v=rw.querySelector('.p-val').value.trim();
+    return (n&&v)?('- '+n+': '+v):null;
+  }).filter(Boolean);
+  var giam = tran==='0'
+    ? '2. KHÔNG được tự giảm giá dưới bất kỳ hình thức nào. Khách đề nghị giảm → giữ thiện chí, lịch sự + kết thúc bằng: [CHUYỂN SẾP: khách đề nghị giảm giá].'
+    : '2. Giảm giá: chỉ được tự đồng ý tối đa '+tran+'%'+(donmin?(' cho đơn hàng từ '+donmin+'đ'):'')+'. Khách đề nghị mức cao hơn → giữ thiện chí, lịch sự + kết thúc bằng: [CHUYỂN SẾP: khách đề nghị giảm vượt thẩm quyền].';
+  var no = congno.indexOf('Khách hàng thân thiết')===0
+    ? '3. Công nợ/thanh toán chậm: KHÔNG tự cam kết. Với khách quen có thể ghi nhận thiện chí, nhưng luôn kết thúc bằng: [CHUYỂN SẾP: khách đề nghị công nợ].'
+    : '3. Công nợ/thanh toán chậm: TUYỆT ĐỐI không tự cam kết. Luôn kết thúc bằng: [CHUYỂN SẾP: khách đề nghị công nợ].';
+  var lon = donlon ? ('4. Đơn hàng từ '+donlon+'đ trở lên: [CHUYỂN SẾP: đơn hàng giá trị lớn].\n') : '';
+  return 'Bạn là NHÂN VIÊN SALES của '+com+', kinh doanh '+sp+'.\n'
+  +'Nhiệm vụ: đọc tin nhắn khách hàng tôi dán vào, soạn MỘT câu trả lời hoàn chỉnh để tôi gửi thẳng cho khách.\n\n'
+  +'== QUY TẮC BẮT BUỘC ==\n'
+  +'1. CHỈ báo giá theo bảng giá dưới đây. Sản phẩm không có trong bảng → hỏi lại khách hoặc [CHUYỂN SẾP]. TUYỆT ĐỐI không tự đặt giá.\n'
+  +giam+'\n'+no+'\n'+lon
+  +'5. Khiếu nại nghiêm trọng, khách không hài lòng sâu sắc, yêu cầu bồi thường: xin lỗi chân thành, KHÔNG thừa nhận lỗi cụ thể, KHÔNG cam kết đền bù → [CHUYỂN SẾP: khiếu nại].\n'
+  +'6. Ngoài phạm vi hiểu biết: hỏi lại cho rõ, hoặc [CHUYỂN SẾP: ngoài phạm vi]. Không suy diễn, không phỏng đoán.\n'
+  +'7. Không đề cập đến việc bạn là AI trừ khi khách hỏi trực tiếp.\n\n'
+  +'== PHONG CÁCH GIAO TIẾP ==\nXưng "'+xung+'", gọi khách "'+goi+'". Ngắn gọn (dưới 4 câu khi có thể), chuyên nghiệp, thân thiện; kết thúc bằng một câu mở tiếp cuộc trò chuyện.\n\n'
+  +'== BẢNG GIÁ CHÍNH THỨC ==\n'+(rows.length?rows.join('\n'):'- (chưa thiết lập — xác nhận lại với quản lý)')+'\n\n'
+  +'== CHÍNH SÁCH ==\n'
+  +(val('f-ship')?('Giao hàng: '+val('f-ship')+'\n'):'')
+  +(val('f-bh')?('Bảo hành/đổi trả: '+val('f-bh')+'\n'):'')
+  +(val('f-faq')?('\n== CÂU HỎI THƯỜNG GẶP ==\n'+val('f-faq')+'\n'):'')
+  +'\nXác nhận tiếp nhận nhiệm vụ bằng câu trả lời: "Em sẵn sàng. Dán tin khách vào ạ." — sau đó chỉ phản hồi theo quy tắc trên.';
+}
+
+function goGate(){
+  if(!val('f-com')||!val('f-sp')){document.getElementById('err-builder').style.display='block';return;}
+  document.getElementById('builder').style.display='none';
+  document.getElementById('gate').style.display='block';
+  window.scrollTo({top:0});
+}
+function unlock(){
+  var n=val('g-name'), ph=val('g-phone');
+  if(!n||!ph){document.getElementById('err-gate').style.display='block';return;}
+  var btn=document.getElementById('g-btn');btn.disabled=true;btn.textContent='Đang bàn giao...';
+  var prompt=buildPrompt();
+  var fd=new FormData();
+  fd.append('_subject','⚙ KIẾN TẠO AI: '+n+' - '+ph+' - '+val('f-com'));
+  fd.append('Ho_ten',n);fd.append('Zalo',ph);fd.append('Doanh_nghiep',val('f-com'));fd.append('Linh_vuc',val('f-sp'));
+  fd.append('Tham_quyen_giam',val('f-tran')+'%');fd.append('Ban_thiet_lap',prompt);
+  fd.append('Nguon','Kien Tao AI'+location.search);
+  fd.append('_captcha','false');fd.append('_template','table');
+  fetch('https://formsubmit.co/ajax/'+EMMY_EMAIL,{method:'POST',body:fd}).finally(function(){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('result').style.display='block';
+    document.getElementById('r-com').textContent=val('f-com');
+    document.getElementById('prompt-out').textContent=prompt;
+    document.getElementById('t-tran').textContent=val('f-tran')==='0'?'3':val('f-tran');
+    var sp=document.querySelector('.price-row .p-name').value.trim();
+    if(sp) [].forEach.call(document.querySelectorAll('.t-sp'),function(e){e.textContent=sp;});
+    var z=document.getElementById('zalo-990');
+    if(EMMY_ZALO) z.href='https://zalo.me/'+EMMY_ZALO; else z.href='airon-bai-kham.html';
+    window.scrollTo({top:0});
+  });
+}
+function copyPrompt(){
+  var t=document.getElementById('prompt-out').textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(ok,function(){
+    var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta);ok();
+  });
+  function ok(){document.getElementById('copy-ok').style.display='block';}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEO Console — Buồng lái điều hành | AIRON by TSL</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E2A2A; --teal:#0F5E5E; --teal-deep:#093B3B; --teal-soft:#EDF3F1;
+  --gold:#E8A33D; --gold-deep:#B87F26;
+  --paper:#F7F4EC; --card:#FFFFFF; --line:#D8D2C2;
+  --red:#C0392B; --amber:#D68910; --green:#1E8449;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;font-size:15px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Bricolage Grotesque','Be Vietnam Pro',sans-serif;letter-spacing:-.01em}
+
+/* TOP BAR */
+.topbar{background:var(--teal-deep);color:#F2EFE6;padding:14px 0;position:sticky;top:0;z-index:50;box-shadow:0 4px 20px rgba(9,59,59,.25)}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;color:#fff}
+.brand span{color:var(--gold)}
+.northstar{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:8px 16px}
+.northstar .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9FB8B2}
+.northstar .val{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:24px;color:var(--gold)}
+.northstar .sub{font-size:11.5px;color:#C9DAD6;max-width:220px;line-height:1.35}
+.today{font-size:12.5px;color:#9FB8B2;text-align:right}
+
+/* SECTION */
+section{padding:26px 0 6px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.sec-h h2{font-size:19px;font-weight:800;color:var(--teal-deep)}
+.sec-h .hint{font-size:12px;color:#8A958F}
+
+/* DREAM STRIP */
+.dream{display:grid;grid-template-columns:1.2fr 1.2fr 1fr;gap:14px}
+.dcard{background:var(--teal-deep);color:#E8EFEC;border-radius:16px;padding:18px 20px}
+.dcard .lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+.dcard p{font-size:14.5px;line-height:1.5}
+.dcard.values p{display:flex;flex-wrap:wrap;gap:7px}
+.dcard.values .chip{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px 12px;font-size:12.5px}
+
+/* OKR */
+.okr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.okr{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.okr h3{font-size:14.5px;color:var(--teal-deep);margin-bottom:10px;min-height:40px}
+.okr .row{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px;color:#41504C}
+.okr .bar{height:9px;background:#EEEAE0;border-radius:99px;overflow:hidden;margin-bottom:10px}
+.okr .fill{height:100%;border-radius:99px}
+.okr .owner{font-size:11.5px;color:#8A958F}
+
+/* DEPARTMENTS */
+.tier{margin-bottom:16px}
+.tier-h{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.tier-h .tag{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--teal);border-radius:999px;padding:4px 12px}
+.tier-h .nm{font-size:13px;color:#5A6B66}
+.dept-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.dept{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;position:relative}
+.dept.alert{border:2px solid var(--red)}
+.dept .dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.dept h3{font-size:15px;color:var(--teal-deep)}
+.gate{display:flex;gap:4px}
+.gate i{width:10px;height:10px;border-radius:50%;background:#DDD;display:inline-block}
+.gate i.ok{background:var(--green)} .gate i.warn{background:var(--amber)} .gate i.bad{background:var(--red)}
+.dept .kpi{font-size:12px;color:#5A6B66;margin-bottom:8px}
+.dept .kpi b{color:var(--ink)}
+.dept ul{list-style:none;display:grid;gap:5px}
+.dept li{font-size:12.5px;display:flex;gap:7px;align-items:flex-start;color:#41504C}
+.dept li::before{content:"›";color:var(--gold-deep);font-weight:800}
+.dept li.done{color:#8A958F;text-decoration:line-through}
+.dept li.done::before{content:"✓";color:var(--green)}
+.dept .esc{margin-top:9px;font-size:11.5px;font-weight:700;color:var(--red)}
+
+/* DECISIONS */
+.two-col{display:grid;grid-template-columns:1.35fr 1fr;gap:16px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.panel h2{font-size:16.5px;color:var(--teal-deep);margin-bottom:12px}
+.dec{border-left:4px solid var(--red);background:#FBF1EF;border-radius:0 12px 12px 0;padding:11px 14px;margin-bottom:10px}
+.dec.mid{border-left-color:var(--amber);background:#FBF6E9}
+.dec .from{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8A958F;margin-bottom:2px}
+.dec p{font-size:13.5px}
+.dec .ask{font-weight:700;color:var(--teal-deep)}
+.dec .meta{font-size:11.5px;color:#8A958F;margin-top:4px}
+.gates-guide{background:var(--teal-soft);border-radius:12px;padding:12px 14px;font-size:12.5px;color:#41504C;margin-top:6px}
+.gates-guide b{color:var(--teal-deep)}
+
+/* KNOWLEDGE */
+.kn{display:grid;gap:8px}
+.kn a{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:13px}
+.kn a:hover{border-color:var(--teal)}
+.kn .own{font-size:11px;color:#8A958F;white-space:nowrap}
+.kn b{color:var(--teal-deep)}
+
+/* RHYTHM */
+.rhythm{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:30px}
+.rh{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:12px;padding:13px 15px}
+.rh .w{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:5px}
+.rh p{font-size:13px;color:#41504C}
+
+footer{padding:24px 0 40px;text-align:center;font-size:12.5px;color:#7A857F}
+@media(max-width:900px){.dream,.okr-grid,.rhythm{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}.northstar .sub{display:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">CEO CONSOLE <span>·</span> AIRON by TSL</div>
+    <div class="northstar">
+      <div>
+        <div class="lbl">North Star</div>
+        <div class="val" id="ns-val">—</div>
+      </div>
+      <div class="sub">việc trọng yếu ra kết quả KHÔNG cần CEO can thiệp (tuần này)</div>
+    </div>
+    <div class="today" id="today"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- DREAM: Tầm nhìn / Sứ mệnh / Giá trị -->
+<section>
+  <div class="sec-h"><h2>🌙 Kim chỉ nam — mọi quyết định soi vào đây trước</h2><span class="hint">Sửa trong CONFIG cuối file · đổi = qua Amendment</span></div>
+  <div class="dream">
+    <div class="dcard"><div class="lbl">Tầm nhìn</div><p id="vision"></p></div>
+    <div class="dcard"><div class="lbl">Sứ mệnh</div><p id="mission"></p></div>
+    <div class="dcard values"><div class="lbl">Giá trị · Văn hóa</div><p id="values"></p></div>
+  </div>
+</section>
+
+<!-- OKR -->
+<section>
+  <div class="sec-h"><h2>🎯 Mục tiêu quý (OKR)</h2><span class="hint">DONE = số cải thiện, không phải việc đã làm</span></div>
+  <div class="okr-grid" id="okrs"></div>
+</section>
+
+<!-- QUYẾT ĐỊNH CHỜ CEO + 3 CỔNG -->
+<section>
+  <div class="two-col">
+    <div class="panel">
+      <h2>🔔 Chờ CEO quyết — [CHUYỂN SẾP] từ các phòng</h2>
+      <div id="decisions"></div>
+      <div class="gates-guide">
+        <b>Trước khi quyết, hỏi đúng 3 cổng:</b> ① Rõ chưa? (việc + tiêu chí DONE) · ② Làm được chưa? (đủ quyền + nguồn lực?) · ③ Bằng chứng đâu? (số liệu, không nhận "xong" bằng miệng). Ca nào lặp ≥3 lần → thêm luật vào Hiến pháp, đừng quyết tay mãi.
+      </div>
+    </div>
+    <div class="panel">
+      <h2>📚 Tri thức doanh nghiệp — 1 chủ · 1 nơi lưu</h2>
+      <div class="kn" id="knowledge"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHÒNG BAN THEO 6 TẦNG -->
+<section>
+  <div class="sec-h"><h2>🏢 Phòng ban — việc tuần này & trạng thái 3 cổng</h2><span class="hint">Chấm: 🟢 qua cổng · 🟡 chớm · 🔴 rớt — viền đỏ = có ca chờ sếp</span></div>
+  <div id="tiers"></div>
+</section>
+
+<!-- NHỊP ĐIỀU HÀNH -->
+<section>
+  <div class="sec-h"><h2>⏱ Nhịp của CEO — chủ động, không chờ báo cáo</h2></div>
+  <div class="rhythm">
+    <div class="rh"><div class="w">Mỗi sáng · 5 phút</div><p>Mở Console → xử hết ô "Chờ CEO quyết" → liếc phòng nào viền đỏ.</p></div>
+    <div class="rh"><div class="w">Mỗi tuần · 45 phút</div><p>Rà 3 cổng từng phòng + chọn NGẪU NHIÊN 1 KPI bắt chứng minh bằng số. Đội biết CEO có kiểm → đội tự nâng chuẩn.</p></div>
+    <div class="rh"><div class="w">Mỗi quý · nửa ngày</div><p>Bài kiểm phủ KPI: KPI nào chưa ai đứng tên? Việc nào 2 phòng cùng làm mơ hồ? → giao lại, chốt 1 chủ.</p></div>
+  </div>
+</section>
+
+</div>
+<footer>AIRON by TSL · Emmy Lê Thị Hải — System Leadership Coach · "Lãnh đạo khuếch đại qua hệ thống, không qua sự hiện diện."</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   CONFIG — TOÀN BỘ DỮ LIỆU CONSOLE NẰM Ở ĐÂY
+   Má (hoặc AI CEO) sửa file này mỗi tuần: đổi số, tick việc xong,
+   thêm/bớt ca chờ quyết. Sửa xong upload đè lên GitHub là xong.
+   ═══════════════════════════════════════════════════════════════ */
+var CONFIG = {
+  northStar: "68%",   // % việc trọng yếu ra kết quả không cần CEO
+
+  vision:  "Trở thành nền tảng năng lực vận hành số 1 cho SME Việt — nơi 1.000 doanh nghiệp chạy tốt mà chủ không phải có mặt.",
+  mission: "Biến tri thức CEO thành hệ thống tự vận hành — để chủ không còn là người không thể thiếu trong chính công ty mình.",
+  values:  ["Cash → Outcome → Output","Bằng chứng, không lời hứa","0đ-first","Kỷ luật tạo di sản","Sửa luật, không sửa người"],
+
+  okrs: [
+    { o:"O1 · Doanh thu phễu mới đạt 60 triệu trong quý",
+      kr:"990k đã bán: 9/20 suất", pct:45, owner:"AI Sales + Emmy" },
+    { o:"O2 · 100 phiếu Bài Khám hoàn thành",
+      kr:"Phiếu khám: 37/100", pct:37, owner:"AI Marketing" },
+    { o:"O3 · 3 case study có số before→after",
+      kr:"Case đủ số: 1/3", pct:33, owner:"AI Delivery + Emmy" }
+  ],
+
+  /* Ca chờ CEO quyết — level: "high" (đỏ) | "mid" (vàng) */
+  decisions: [
+    { from:"AI Sales", level:"high",
+      ask:"Khách Minh Phát xin công nợ 30 ngày, đơn 18 triệu",
+      note:"Khách mua lần 3, 2 lần trước thanh toán đúng hạn", time:"09:20 hôm nay" },
+    { from:"AI Sales", level:"mid",
+      ask:"Khách xin giảm 12% (trần 5%) — đơn 25 triệu",
+      note:"Ca xin giảm vượt trần LẦN 4 tuần này → cân nhắc thêm luật bậc giảm theo giá trị đơn", time:"Hôm qua" },
+    { from:"AI Finance", level:"mid",
+      ask:"Chi phí API tháng này chạm 80% ngân sách",
+      note:"Đề xuất: nâng ngân sách hoặc giảm tần suất AI Marketing", time:"Hôm qua" }
+  ],
+
+  /* Phòng ban theo 6 tầng — gates: 3 giá trị cho 3 cổng: ok | warn | bad
+     tasks: việc tuần này; done:true = gạch xong; esc: số ca đang chờ sếp */
+  tiers: [
+    { tag:"🌙 DREAM", name:"Định hướng", depts:[
+      { name:"AI CEO (điều phối)", kpi:"North Star ≥ 70%", kpiVal:"68%",
+        gates:["ok","ok","warn"], esc:0,
+        tasks:[{t:"Tổng hợp báo cáo tuần từ 6 tầng",done:true},{t:"Soạn agenda review thứ 6",done:false}] }
+    ]},
+    { tag:"🎯 GOAL", name:"Thị trường & tăng trưởng", depts:[
+      { name:"AI Marketing", kpi:"Lead/tuần ≥ 30", kpiVal:"24",
+        gates:["ok","warn","ok"], esc:0,
+        tasks:[{t:"Đăng 3 bài angle 'Một Người Điều Phối'",done:true},{t:"Test ads ABO trang A vs B",done:false},{t:"Bài LinkedIn số 11",done:false}] },
+      { name:"AI Product", kpi:"1 cải tiến offer/tháng", kpiVal:"Đang chạy",
+        gates:["ok","ok","ok"], esc:0,
+        tasks:[{t:"Phân tích tỷ lệ kit 199k → 990k",done:false}] }
+    ]},
+    { tag:"🗂 PLAN", name:"Kế hoạch & nguồn lực", depts:[
+      { name:"AI Finance", kpi:"Runway ≥ 6 tháng", kpiVal:"7.2 tháng",
+        gates:["ok","ok","warn"], esc:1,
+        tasks:[{t:"Báo cáo thu-chi tuần",done:true},{t:"Cảnh báo ngân sách API",done:true}] }
+    ]},
+    { tag:"⚡ ACTION", name:"Thực thi & giao hàng", depts:[
+      { name:"AI Sales", kpi:"Phản hồi khách < 5 phút", kpiVal:"3 phút",
+        gates:["ok","ok","ok"], esc:2,
+        tasks:[{t:"Xử 140 tin khách tuần này",done:true},{t:"2 ca công nợ chờ sếp",done:false}] },
+      { name:"AI Delivery (990k)", kpi:"Nghiệm thu 5/5 mỗi khách", kpiVal:"5/5",
+        gates:["ok","ok","ok"], esc:0,
+        tasks:[{t:"Bàn giao khách #9",done:true},{t:"Chạm ngày-7 khách #8",done:false}] },
+      { name:"AI CSKH", kpi:"Ca ngày-3/7/14 đúng hạn 100%", kpiVal:"92%",
+        gates:["ok","warn","warn"], esc:0,
+        tasks:[{t:"Nhắn ngày-14 cho 3 khách",done:false}] }
+    ]},
+    { tag:"📊 REVIEW", name:"Đo lường & khép vòng", depts:[
+      { name:"AI Analytics", kpi:"Báo cáo 3 số phễu mỗi T6", kpiVal:"Đúng hạn",
+        gates:["ok","ok","ok"], esc:0,
+        tasks:[{t:"Phễu tuần: 37 khám → 11 gọi → 2 chốt",done:true}] }
+    ]}
+  ],
+
+  knowledge: [
+    { name:"AIRON.LIVE Manual v2.0", own:"Chairman", link:"#" },
+    { name:"Hiến pháp YAML (máy đọc)", own:"CARO", link:"#" },
+    { name:"Định vị v2.0 — Di sản", own:"Chairman", link:"#" },
+    { name:"Delivery Kit 990k", own:"AI Delivery", link:"#" },
+    { name:"AI Sales Manual & User Guide", own:"AI Sales", link:"#" },
+    { name:"Bộ tin nhắn Zalo sau Bài Khám", own:"AI CSKH", link:"#" },
+    { name:"Case Study (khung + số thật)", own:"AI Marketing", link:"#" }
+  ]
+};
+
+/* ═══════════ RENDER — không cần sửa dưới này ═══════════ */
+document.getElementById('ns-val').textContent = CONFIG.northStar;
+var d=new Date(), days=['Chủ nhật','Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7'];
+document.getElementById('today').innerHTML = days[d.getDay()]+', '+('0'+d.getDate()).slice(-2)+'/'+('0'+(d.getMonth()+1)).slice(-2)+'/'+d.getFullYear()+'<br>Nhịp sáng: xử ô "Chờ quyết" trước';
+
+document.getElementById('vision').textContent = CONFIG.vision;
+document.getElementById('mission').textContent = CONFIG.mission;
+document.getElementById('values').innerHTML = CONFIG.values.map(function(v){return '<span class="chip">'+v+'</span>';}).join('');
+
+document.getElementById('okrs').innerHTML = CONFIG.okrs.map(function(o){
+  var c = o.pct>=70?'#1E8449':(o.pct>=40?'#D68910':'#C0392B');
+  return '<div class="okr"><h3>'+o.o+'</h3>'
+    +'<div class="row"><span>'+o.kr+'</span><b>'+o.pct+'%</b></div>'
+    +'<div class="bar"><div class="fill" style="width:'+o.pct+'%;background:'+c+'"></div></div>'
+    +'<div class="owner">Chủ KPI: '+o.owner+'</div></div>';
+}).join('');
+
+document.getElementById('decisions').innerHTML = CONFIG.decisions.length
+  ? CONFIG.decisions.map(function(x){
+      return '<div class="dec '+(x.level==='mid'?'mid':'')+'"><div class="from">'+x.from+' · '+x.time+'</div>'
+        +'<p class="ask">'+x.ask+'</p><p>'+x.note+'</p></div>';
+    }).join('')
+  : '<p style="color:#1E8449;font-weight:700">✓ Không có ca nào chờ — hệ thống đang tự chạy.</p>';
+
+document.getElementById('tiers').innerHTML = CONFIG.tiers.map(function(tier){
+  return '<div class="tier"><div class="tier-h"><span class="tag">'+tier.tag+'</span><span class="nm">'+tier.name+'</span></div>'
+    +'<div class="dept-grid">'+tier.depts.map(function(dp){
+      var gates = dp.gates.map(function(g){return '<i class="'+(g==='ok'?'ok':g==='warn'?'warn':'bad')+'"></i>';}).join('');
+      var tasks = dp.tasks.map(function(t){return '<li class="'+(t.done?'done':'')+'">'+t.t+'</li>';}).join('');
+      return '<div class="dept '+(dp.esc>0?'alert':'')+'">'
+        +'<div class="dh"><h3>'+dp.name+'</h3><span class="gate" title="3 cổng: Rõ · Làm được · Bằng chứng">'+gates+'</span></div>'
+        +'<div class="kpi">KPI: '+dp.kpi+' · Hiện tại: <b>'+dp.kpiVal+'</b></div>'
+        +'<ul>'+tasks+'</ul>'
+        +(dp.esc>0?'<div class="esc">🔴 '+dp.esc+' ca đang chờ sếp quyết</div>':'')
+        +'</div>';
+    }).join('')+'</div></div>';
+}).join('');
+
+document.getElementById('knowledge').innerHTML = CONFIG.knowledge.map(function(k){
+  return '<a href="'+k.link+'"><b>'+k.name+'</b><span class="own">chủ: '+k.own+'</span></a>';
+}).join('');
+</script>
+</body>
+</html>

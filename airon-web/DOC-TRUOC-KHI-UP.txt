@@ -1,0 +1,25 @@
+BỘ DEPLOY WEB AIRON — 8 file
+=============================
+CÁCH ĐƯA LÊN (1 lần kéo thả):
+1. Vào github.com -> repo tsl-demo -> Add file -> Upload files
+2. Kéo TẤT CẢ 8 file trong thư mục này thả vào -> Commit changes
+3. Đợi 1 phút. Trang chủ mới: https://lthihaigmail.github.io/tsl-demo/
+   (index.html sẽ ĐÈ trang chủ cũ — đó là chủ đích)
+
+TRƯỚC KHI UP — điền số Zalo (mở file bằng Notepad, Ctrl+F tìm EMMY_ZALO):
+- kien-tao-nhan-vien-ai.html
+- airon-bai-kham.html
+- lop-hoc-A... và lop-hoc-B...
+- mua-kit-199k.html + cam-on-tai-kit.html (thêm PAYOS_LINK, DOWNLOAD_LINK khi có)
+
+SAU KHI UP — kích hoạt email (1 lần duy nhất):
+- Mở trang Kien tao AI hoặc Bai kham -> tự điền form thử 1 lần
+- Mở hộp thư lthihai@gmail.com -> bấm nút Activate trong email FormSubmit
+
+DANH SÁCH LINK SAU KHI LIVE:
+- Trang chủ:        .../tsl-demo/
+- Bài Khám:         .../tsl-demo/airon-bai-kham.html
+- Kiến tạo AI:      .../tsl-demo/kien-tao-nhan-vien-ai.html
+- Lớp học A / B:    .../tsl-demo/lop-hoc-A-mot-nguoi-dieu-phoi.html  |  ...B-founder-kiet-suc.html
+- Mua kit 199k:     .../tsl-demo/mua-kit-199k.html
+- CEO Console:      .../tsl-demo/ceo-console.html  (link riêng, không public)
